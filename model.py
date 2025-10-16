@@ -9,6 +9,8 @@ import pandas as pd
 train_df = pd.read_csv("sign_mnist_train.csv")
 test_df = pd.read_csv("sign_mnist_test.csv")
 
+#Link for dataset from Kaggle- https://www.kaggle.com/datasets/datamunge/sign-language-mnist
+
 y_train = train_df['label']
 y_test = test_df['label']
 del train_df['label']
@@ -69,5 +71,6 @@ history = model.fit(datagen.flow(x_train,y_train, batch_size = 128) ,epochs = 20
 
 loss, accuracy = model.evaluate(x_test, y_test, verbose=1)
 print('Accuracy of the model:',accuracy*100)
+
 
 model.save('smnist.h5')
